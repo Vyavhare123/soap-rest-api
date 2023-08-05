@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://com.springbootsoap/products"
+            xmlns="http://com.springbootsoap/products"
+            elementFormDefault="qualified">
+
+    <!-- Define complex types for data structures -->
+
+    <xsd:complexType name="Product">
+        <xsd:sequence>
+            <xsd:element name="id" type="xsd:long"/>
+            <xsd:element name="name" type="xsd:string"/>
+            <xsd:element name="price" type="xsd:double"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="CreateProductRequest">
+        <xsd:sequence>
+            <xsd:element name="product" type="Product"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="CreateProductResponse">
+        <xsd:sequence>
+            <xsd:element name="productId" type="xsd:long"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="GetProductRequest">
+        <xsd:sequence>
+            <xsd:element name="productId" type="xsd:long"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="GetProductResponse">
+        <xsd:sequence>
+            <xsd:element name="product" type="Product"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="UpdateProductRequest">
+        <xsd:sequence>
+            <xsd:element name="product" type="Product"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="UpdateProductResponse">
+        <xsd:sequence>
+            <xsd:element name="product" type="Product"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="DeleteProductRequest">
+        <xsd:sequence>
+            <xsd:element name="productId" type="xsd:long"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="DeleteProductResponse">
+        <xsd:sequence>
+            <xsd:element name="success" type="xsd:boolean"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <!-- Define elements for SOAP requests and responses -->
+
+    <xsd:element name="CreateProductRequest" type="CreateProductRequest"/>
+    <xsd:element name="CreateProductResponse" type="CreateProductResponse"/>
+
+    <xsd:element name="GetProductRequest" type="GetProductRequest"/>
+    <xsd:element name="GetProductResponse" type="GetProductResponse"/>
+
+    <xsd:element name="UpdateProductRequest" type="UpdateProductRequest"/>
+    <xsd:element name="UpdateProductResponse" type="UpdateProductResponse"/>
+
+    <xsd:element name="DeleteProductRequest" type="DeleteProductRequest"/>
+    <xsd:element name="DeleteProductResponse" type="DeleteProductResponse"/>
+
+</xsd:schema>
